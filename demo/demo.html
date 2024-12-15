@@ -37,8 +37,20 @@
     </div>
 </body>
 <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
     const Images = document.getElementById("container-image");
     let content_images = Images.innerHTML;
-    
+    if (id == 'vagabond') {
+        for (let i = 0; i <= 42; i++) {
+            content_images += `<img src="../Images/vagabond/${i}.jpg" alt="vagabond">`;
+        }
+    } else if (id == 'slam-dunk') {
+        for (let i = 0; i <= 42; i++) {
+            content_images += `<img src="../Images/slam-dunk/${i}.jpg" alt="slam-dunk">`;
+        }
+    } 
+
+    Images.innerHTML = content_images;
 </script>
 </html>
