@@ -26,6 +26,11 @@ body {
     flex-direction: column;
 }
 
+.resize {
+    width: 1114px;
+    height: 1500px;
+}
+
 .header {
     background: rgb(255, 255, 255);
     flex: 0 0 auto;

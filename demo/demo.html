@@ -21,7 +21,7 @@
     </header>
     <div class="container">
         <div id="container-image">
-
+    
         </div>
         <div class="bottom">
             <button type="button" class="btn btn-danger">Chap trước</button>
@@ -43,13 +43,13 @@
     let content_images = Images.innerHTML;
     if (id == 'vagabond') {
         for (let i = 0; i <= 42; i++) {
-            content_images += `<img src="../Images/vagabond/${i}.jpg" alt="vagabond">`;
+            content_images += `<img class="resize" src="../Images/vagabond/${i}.jpg" alt="vagabond"/>`;
         }
-    } else if (id == 'slam-dunk') {
-        for (let i = 0; i <= 42; i++) {
-            content_images += `<img src="../Images/slam-dunk/${i}.jpg" alt="slam-dunk">`;
+    } else if (id == "dragon-ball") {
+        for (let i = 0; i <= 36; i++) {
+            content_images += `<img class="resize" src="../Images/dragon-ball/${i}.jpg" alt="dragon-ball"/>`;
         }
-    } 
+    }
 
     Images.innerHTML = content_images;
 </script>
