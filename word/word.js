@@ -5,7 +5,7 @@ const data = [
         chapter: 325,
         image: "../Images/hanh-trinh.jpg",
         content: `
-        <h2>Xuyên Sách, Hành Trình Tìm Kiếm Hạnh Phúc Hoàn Hảo Của Nữ Phụ</h2>
+        <h2><strong>Xuyên Sách, Hành Trình Tìm Kiếm Hạnh Phúc Hoàn Hảo Của Nữ Phụ</strong></h2>
                 <h4>“Về nhà với anh!” Chu Lâm tức giận hét to với cô!</h4>
 
                 <h4>Bạch Minh Châu đối mặt với gương mặt đẹp trai trương dương của Chu Lâm, hiện tại cả người của người đàn ông này đều tràn ngập hơi thở hung ác nham hiểm, ánh mắt hận không thể lột da của cô.</h4>
@@ -92,7 +92,7 @@ const data = [
         title: "Lưu Đày Thần Y Mang Theo Không Gian Chạy Nạn",
         chapter: 123,
         image: "../Images/luu-day-than-y.jpg",
-        content: `<h2>Lưu Đày Thần Y Mang Theo Không Gian Chạy Nạn</h2>
+        content: `<h2><strong>Lưu Đày Thần Y Mang Theo Không Gian Chạy Nạn</strong></h2>
 <h4>“Cô không xứng với danh hiệu thần y nữa!” Lời nói đầy khinh miệt vang lên giữa đại điện đông người.</h4> <h4>Tô Lam nhìn người đàn ông trước mặt, ánh mắt lạnh lẽo như băng giá. Làm sao cô không nhận ra người này chính là kẻ đã đẩy gia đình cô vào cảnh tan cửa nát nhà?</h4> <h4>Trong khoảnh khắc, một luồng ký ức xa lạ ùa vào, khiến đầu cô đau nhói. Khi mở mắt ra, thế giới trước mặt đã thay đổi hoàn toàn.</h4> <h4>Cô xuyên không! Không chỉ vậy, cô còn xuyên vào một nữ phụ bị lưu đày cùng gia tộc vì tội danh phản nghịch. Người đời khinh thường, thân phận thấp kém, một tương lai đầy tối tăm đang chờ đón cô.</h4> <h4>Nhưng không ai biết, cô mang theo không gian thần kỳ - nơi chứa đầy các loại dược liệu quý giá cùng kiến thức y học hiện đại.</h4> <h4>Cuộc hành trình bắt đầu khi đoàn người bị lưu đày đi qua vùng núi hoang vắng đầy nguy hiểm. Dịch bệnh, thú dữ, đói khát - tất cả đều trở thành mối đe dọa cận kề.</h4> <h4>Tô Lam không hề nao núng. Với tài năng và ý chí kiên định, cô từng bước cứu sống những người cùng đoàn, khiến họ dần thay đổi cái nhìn về cô.</h4> <h4>Nhưng điều khiến cô bất ngờ nhất chính là sự xuất hiện của người đàn ông bí ẩn luôn âm thầm bảo vệ cô. Thân phận thật sự của anh là gì? Tại sao anh lại ở đây?</h4> <h4>Mọi bí mật dần được hé lộ khi đoàn người lưu đày tiến gần hơn tới nơi định cư mới. Tô Lam liệu có thể hóa giải mọi oan khuất, tìm lại công lý cho gia tộc và chính bản thân mình?</h4>`,
     },
     {
@@ -100,7 +100,7 @@ const data = [
         title: "Thập Niên 70: Sống Lại Làm Giàu",
         chapter: 126,
         image: "../Images/song-lai-lam-giau.jpg",
-        content: `<h2>Thập Niên 70: Sống Lại Làm Giàu</h2>
+        content: `<h2><strong>Thập Niên 70: Sống Lại Làm Giàu</strong></h2>
 <h4>“Không thể nào! Tôi đã quay trở lại năm 1970?”</h4> <h4>Hứa Nguyệt ôm đầu, kinh ngạc nhìn khung cảnh đơn sơ, lạc hậu trước mắt. Cô rõ ràng vừa mới nhận được thông báo trúng tuyển chức vụ giám đốc điều hành!</h4> <h4>Ký ức ùa về, Hứa Nguyệt nhận ra mình đã xuyên không vào thân thể của một người phụ nữ nông thôn nghèo khó. Nhà chồng keo kiệt, chị dâu đanh đá, em chồng ham chơi - mọi thứ như đang thử thách ý chí của cô.</h4> <h4>Nhưng với kinh nghiệm kinh doanh từ kiếp trước, Hứa Nguyệt không chịu khuất phục. Cô quyết tâm thay đổi vận mệnh.</h4> <h4>Bắt đầu từ việc tận dụng đất đai trống để trồng rau sạch, chăn nuôi gia súc, cô nhanh chóng gây dựng được nguồn thu nhập ổn định. Không ai ngờ người phụ nữ bị coi thường này lại trở thành “đầu tàu kinh tế” trong thôn.</h4> <h4>Tuy nhiên, con đường làm giàu không hề bằng phẳng. Những mưu kế, ghen ghét, đố kỵ bắt đầu xuất hiện. Hứa Nguyệt phải dùng trí thông minh và sự kiên nhẫn để vượt qua mọi trở ngại.</h4> <h4>Và rồi, sự xuất hiện của một người đàn ông trầm ổn, chín chắn đã làm thay đổi cuộc đời cô. Anh không chỉ giúp cô trong công việc mà còn khiến trái tim cô rung động.</h4> <h4>Liệu Hứa Nguyệt có thể vượt qua mọi khó khăn, giữ vững tình yêu và tạo dựng một đế chế kinh doanh huy hoàng giữa thời kỳ đầy biến động này?</h4>`
     },
     {

@@ -95,6 +95,7 @@ ul {
     background: #fff;
     margin-bottom: 5px;
     height: 700px;
-    align-items: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }

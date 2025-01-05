@@ -19,7 +19,7 @@ body {
     background-color: white;
     border: 1px solid grey;
     width: 600px;
-    height: auto;
+    height: 1250px;
     margin-top: 68px;
     display: flex;
     flex-direction: column;

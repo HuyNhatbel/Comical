@@ -93,3 +93,17 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.image {
+    width:50%;
+}
+
+.image-contain {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.comic h2 {
+    text-align: center;
+}
