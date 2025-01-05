@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Images/background.jpg')!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x:hidden
+}
+
+.container {
+    background-color: white;
+    border: 1px solid grey;
+    width: 600px;
+    height: 920px;
+    margin-top: 68px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-images {
+    max-width: 100%;
+    width: 275px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.item {
+    height: 275px;
+    width: 175px;
+    background-color: black;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.item-text {
+    color: white;
+    display:flex;
+    justify-content: center;
+}
+
+.item-text-b {
+    color: white;
+    display:flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 75%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border: black solid 3px
+}
+
+.header {
+    background: rgb(255, 255, 255);
+    flex: 0 0 auto;
+    position: fixed;
+    top: 0;
+    width: 1920px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 100px
+}
+
+.header-span {
+    text-decoration: none;
+    color:black
+}
+
+.header-spans {
+    display: flex;
+    gap: 20px;
+}
+
+.icon span {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.items-m {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border: black solid 3px
+}
+
+.comin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+}
+
+.buttons {
+    padding: 10px;
+    margin-top: 20px
+}

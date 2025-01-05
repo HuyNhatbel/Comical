@@ -10,9 +10,10 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url('../Images/background.jpg')!important;
+    background-repeat: no-repeat;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+    overflow-x:hidden
 }
 
 .container {
@@ -50,7 +51,7 @@ body {
 
 .title {
     text-align: center;
-    margin-top: 150px
+    margin-top: 80px
 }
 
 .footer {
@@ -63,12 +64,13 @@ body {
     text-align: center;
 }
 
-.text {
-    max-width: auto;
-    padding: 1rem;
-    background: #fff;
-    margin-bottom: 5px;
-    height: 700px;
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px
 }
 
 h1, h2, h3 {
@@ -78,4 +80,21 @@ h1, h2, h3 {
 ul {
     list-style-type: disc;
     margin-left: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 15px
+}
+
+.content {
+    max-width: auto;
+    padding: 1rem;
+    background: #fff;
+    margin-bottom: 5px;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
 }
