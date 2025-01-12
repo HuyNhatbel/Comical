@@ -7,6 +7,7 @@ document.getElementById("btnSignUp").addEventListener('click', function () {
 
     if (username.length < 6) {
         alert("Tên phải chứa tối đa 6 ký tự")
+        return
     }
 
     if (!email.includes("@")) {
