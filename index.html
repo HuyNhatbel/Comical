@@ -20,25 +20,12 @@
     </style>
 </head>
 <body>
-    <img src="../Images/icon.png" alt="icon">
+    <img src="../../Images/icon.png" alt="icon">
 </body>
 <script>
     function login() {
-        window.location.href = 'login/login.html';
+        window.location.href = 'client/login/index.html';
     }
     setTimeout(login, 2000)
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-    const firebaseConfig = {
-        apiKey: "AIzaSyCpOWvpr23H_bxtja_Q4r5xlVCPvy2XJmM",
-        authDomain: "something-405b6.firebaseapp.com",
-        projectId: "something-405b6",
-        storageBucket: "something-405b6.firebasestorage.app",
-        messagingSenderId: "50874984634",
-        appId: "1:50874984634:web:d5156085b2a764baf47a83",
-        measurementId: "G-CCCGP37GVT"
-    };
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app)
 </script>
 </html>

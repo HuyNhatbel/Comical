@@ -32,7 +32,7 @@ document.getElementById("btnSignUp").addEventListener('click', function () {
         
         localStorage.setItem('users', JSON.stringify(users));
         alert("Đăng ký tài khoản thành công!")
-        window.location.href = '../login/login.html'
+        window.location.href = '../login/index.html'
     } else {
         alert("Mật khẩu không khớp!")
     }
