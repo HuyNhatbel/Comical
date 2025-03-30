@@ -40,7 +40,51 @@
             <span><a class="header-span" href="../contact/contact.html">Contact</a></span>
         </div>
     </header>
-    <script src="./signup.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCpOWvpr23H_bxtja_Q4r5xlVCPvy2XJmM",
+            authDomain: "something-405b6.firebaseapp.com",
+            projectId: "something-405b6",
+            storageBucket: "something-405b6.firebasestorage.app",
+            messagingSenderId: "50874984634",
+            appId: "1:50874984634:web:d5156085b2a764baf47a83",
+            measurementId: "G-CCCGP37GVT"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        
+        const btnSignUp = document.getElementById('btnSignUp');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const retypepassword = document.getElementById('retypepassword');
+        btnSignUp.addEventListener('click', handleSignup);
+        function handleSignup() {
+            if (password.value != retypepassword.value) {
+                alert('Password and Confirm Password must be same');
+                return;
+            }
+            createUserWithEmailAndPassword(auth, email.value, password.value)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                })
+                .catch((error) => {
+                    const errorCode = error.code; 
+                    const errorMessage = error.message;
+                    console.log(errorCode, ": ", errorMessage);
+                });
+        }
+        document.getElementById("home").addEventListener('click', function() {
+            alert('Hãy đăng nhập để về trang chủ!')
+        });
+        document.getElementById("contact").addEventListener('click', function() {
+            alert('Hãy đăng nhập để liên hệ!')
+        });
+    </script>
     
 </body>
 </html>

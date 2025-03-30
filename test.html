@@ -1,107 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comical - Your Comic Haven</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-    </style>
+    <title>Document</title>
 </head>
+
 <body>
-    <header>
-        <h1>Comical - Your Comic Haven</h1>
-    </header>
-    <div class="container">
-        <h2>Core Features</h2>
-        <ul>
-            <li><strong>Comic Library</strong>:
-                <ul>
-                    <li>A rich collection of comics organized into categories like humor, fantasy, and science fiction.</li>
-                    <li>Filter comics by genre, popularity, or publication date.</li>
-                </ul>
-            </li>
-            <li><strong>Responsive Design</strong>: 
-                Works seamlessly across desktops, tablets, and smartphones.
-            </li>
-            <li><strong>Interactive Viewer</strong>: 
-                <ul>
-                    <li>High-resolution viewing with zoom, pan, and page navigation.</li>
-                </ul>
-            </li>
-            <li><strong>User Accounts</strong>: 
-                <ul>
-                    <li>Bookmark favorite comics, track reading progress, and leave comments.</li>
-                    <li>Personalized libraries for registered users.</li>
-                </ul>
-            </li>
-            <li><strong>Updates and Notifications</strong>: 
-                Notifications for new comics or chapters and subscription features.
-            </li>
-            <li><strong>Community Interaction</strong>: 
-                <ul>
-                    <li>Rate comics, discuss, and share fan art or user-submitted comics.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2>Technical Stack</h2>
-        <ul>
-            <li><strong>Frontend</strong>:
-                <ul>
-                    <li>Built with frameworks like React or Vue.js.</li>
-                    <li>Styled with Tailwind CSS or Bootstrap.</li>
-                </ul>
-            </li>
-            <li><strong>Backend</strong>:
-                <ul>
-                    <li>Powered by Node.js, Django, or Ruby on Rails.</li>
-                    <li>Database systems like MongoDB or PostgreSQL.</li>
-                </ul>
-            </li>
-            <li><strong>Additional Features</strong>:
-                <ul>
-                    <li>Cloud storage for hosting high-quality comic images.</li>
-                    <li>API endpoints for mobile app compatibility.</li>
-                </ul>
-            </li>
-            <li><strong>Version Control</strong>: 
-                Managed on platforms like GitHub or GitLab.
-            </li>
-        </ul>
-
-        <h2>Future Enhancements</h2>
-        <ul>
-            <li>Adding multilingual support for global accessibility.</li>
-            <li>Offline reading mode for subscribed users.</li>
-            <li>AI-based comic recommendations based on user preferences.</li>
-        </ul>
+    <div>
+        <h1>Sign Up</h1>
+        <div class="form">
+            <input type="text" name="name" placeholder="Name" required autofocus id="name">
+            <input type="text" name="email" placeholder="Email" required autofocus id="email">
+            <input type="password" name="password" placeholder="Password" required id="password">
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required
+                id="confirm_password">
+            <input type="submit" value="Sign Up" id="btnSignup">
+        </div>
     </div>
 </body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyCpOWvpr23H_bxtja_Q4r5xlVCPvy2XJmM",
+        authDomain: "something-405b6.firebaseapp.com",
+        projectId: "something-405b6",
+        storageBucket: "something-405b6.firebasestorage.app",
+        messagingSenderId: "50874984634",
+        appId: "1:50874984634:web:d5156085b2a764baf47a83",
+        measurementId: "G-CCCGP37GVT"
+      };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+
+    const btnSignup = document.getElementById('btnSignup');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const confirm_password = document.getElementById('confirm_password');
+    btnSignup.addEventListener('click', handleSignup);
+    function handleSignup() {
+        if (password.value != confirm_password.value) {
+            alert('Password and Confirm Password must be same');
+            return;
+        }
+        createUserWithEmailAndPassword(auth, email.value, password.value)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code; 
+                const errorMessage = error.message;
+                console.log(errorCode, ": ", errorMessage);
+            });
+    }
+</script>
+
 </html>
