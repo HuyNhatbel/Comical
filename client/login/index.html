@@ -20,7 +20,6 @@
                 <input type="password" name="password" id="password" placeholder="*********" required />
             </div>
             <button id="btnLogin" class="btn btn-success">Đăng nhập</button>
-            <button id="btnGoogleSignin" class="btn btn-success">Đăng nhập</button>
             <a href="../signup/signup.html">Không có tài khoản?</a>
         </div>
     </div>
@@ -35,101 +34,7 @@
             <span><a id="contact" class="header-span" href="../contact/contact.html">Liên hệ</a></span>
         </div>
     </header>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-        import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-        import { addDoc, collection } from "firebase/firestore";
-        import { db } from "./firebase"; // Ensure Firestore is imported
-    
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCpOWvpr23H_bxtja_Q4r5xlVCPvy2XJmM",
-            authDomain: "something-405b6.firebaseapp.com",
-            projectId: "something-405b6",
-            storageBucket: "something-405b6.firebasestorage.app",
-            messagingSenderId: "50874984634",
-            appId: "1:50874984634:web:d5156085b2a764baf47a83",
-            measurementId: "G-CCCGP37GVT"
-        };
-    
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
-    
-        // Get elements
-        const btnLogin = document.getElementById('btnLogin');
-        const email = document.getElementById('email');
-        const password = document.getElementById('password');
-        const btnGoogleSignin = document.getElementById('btnGoogleSignin');
-    
-        // Add event listener for login button
-        btnLogin.addEventListener('click', handleLogin);
-    
-        function handleLogin() {
-            signInWithEmailAndPassword(auth, email.value, password.value)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    console.log("Logged in successfully:", user);
-                    alert("Login successful!");  // Optional alert
-                })
-                .catch((error) => {
-                    console.error("Login failed:", error.code, error.message);
-                    alert("Error: " + error.message);  // Show error to user
-                });
-        }
-        document.getElementById("home").addEventListener('click', function() {
-            alert('Hãy đăng nhập để về trang chủ!')
-            return
-        });
-        document.getElementById("contact").addEventListener('click', function() {
-            alert('Hãy đăng nhập để liên hệ!')
-            return
-        });
-        btnGoogleSignin.addEventListener('click', handleGoogleSignin);
-
-        function handleGoogleSignin() {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const credential = GoogleAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
-                    const user = result.user;
-                    console.log(user);
-                }).catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    const email = error.email;
-                    const credential = GoogleAuthProvider.credentialFromError(error);
-                    console.log(errorCode, ": ", errorMessage);
-                });
-        }   
-        const handleCreateUser = async (user) => {
-            if (!user) {
-                console.error("No user provided!");
-                return;
-            }
-        
-            try {
-                await addDoc(collection(db, "users"), {
-                    email: user.email,
-                    fullname: user.displayName || "Unknown",  // Use displayName if available
-                    id: user.uid,
-                    role: "user",
-                    gender: null,
-                    birthday: null,
-                    address: null,
-                    phone: null,
-                    avatar: null,
-                    status: "Active",
-                });
-        
-                console.log("User added to Firestore:", user.uid);
-            } catch (error) {
-                console.error("Error adding user:", error);
-            }
-        };
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
 
