@@ -68,3 +68,7 @@ h2 {
     background-color: #e08500;
     border-color: #e08500;
 }
+
+#userTable{
+    width: 100% !important;
+}

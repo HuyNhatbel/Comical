@@ -50,6 +50,22 @@ h2 {
     border-color: #e08500;
 }
 
-.odd {
-    height: 100px;
+.content-text {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-text > h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.img-container {
+    height: 50px;
+    width: 50px;
+}
+
+#userTable{
+    width: 100% !important;
 }

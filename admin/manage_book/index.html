@@ -35,7 +35,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Create user</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Create book</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -91,12 +91,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update user</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update book</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
                             <input type="text" class="form-control" placeholder="Title" aria-label="Title"
                                 aria-describedby="basic-addon1" />
                         </div>
@@ -108,19 +107,19 @@
                         </div>
 
                         <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"></span>
                             <span class="input-group-text" id="basic-addon3">Image</span>
-                            <input type="upload" class="form-control" id="basic-url"
+                            <input type="file" class="form-control" id="basic-url"
                                 aria-describedby="basic-addon3 basic-addon4" />
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Content</span>
-                            <input type="text" class="form-control" id="basic-url"
-                                aria-describedby="basic-addon3 basic-addon4" />
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
                         </div>
 
                         <div class="input-group mb-3">
-                            <button type="button" class="btn btn-primary" id="create">Create</button>
+                            <button type="button" class="btn btn-primary" id="create">Update</button>
                         </div>
                     </div>
                 </div>
