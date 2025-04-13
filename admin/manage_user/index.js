@@ -1,19 +1,10 @@
-const userData = [
-    { fullName: "Leslie Maya", email: "leslie@gmail.com", location: "Los Angeles, CA", joined: "October 2, 2010", permission: "Admin" },
-    { fullName: "Josie Deck", email: "josie@gmail.com", location: "Cheyenne, WY", joined: "October 3, 2011", permission: "Admin" },
-    { fullName: "Alex Pfeiffer", email: "alex@gmail.com", location: "Cheyenne, WY", joined: "May 20, 2015", permission: "Admin" },
-    { fullName: "Mike Dean", email: "mike@gmail.com", location: "Syracuse, NY", joined: "July 14, 2015", permission: "Contributor" },
-    { fullName: "Mateus Cunha", email: "cunha@gmail.com", location: "Luanda, AN", joined: "October, 2016", permission: "Contributor" },
-    { fullName: "Nzola Uemo", email: "nzola@gmail.com", location: "Lagos, NG", joined: "June 5, 2016", permission: "Viewer" },
-    { fullName: "Antony Mack", email: "mack@gmail.com", location: "London, ENG", joined: "June 15, 2015", permission: "Contributor" },
-    { fullName: "André da Silva", email: "andre@gmail.com", location: "São Paulo, BR", joined: "March 13, 2018", permission: "Contributor" },
-    { fullName: "Jorge Ferreira", email: "jorge@gmail.com", location: "Huambo, Angola", joined: "March 14, 2018", permission: "Contributor" }
-];
+import { addUserToFirestore, getUsersFromFirestore } from '../../firebase-config.js';
 
 // Khởi tạo DataTable
-$(document).ready(function () {
+$(document).ready(async function () {
+    const users = await getUsersFromFirestore();
     $('#userTable').DataTable({
-        data: userData,
+        data: users,
         columns: [
             {
                 data: null,
@@ -29,13 +20,11 @@ $(document).ready(function () {
             },
             { data: "fullName" },
             { data: "email" },
-            {
-                data: "location",
+            { data: "createdAt",
                 render: function (data) {
-                    return `<span class="me-2">📍</span>${data}`;
+                    return new Date(data.seconds * 1000).toLocaleString();
                 }
-            },
-            { data: "joined" },
+             },
             {
                 data: "permission",
                 render: function (data) {
@@ -53,7 +42,7 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function () {
-                    return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">...</button>`;
+                    return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button>`;
                 },
                 orderable: false
             }
@@ -69,4 +58,23 @@ $(document).ready(function () {
     $('#searchInput').on('keyup', function () {
         $('#userTable').DataTable().search(this.value).draw();
     });
+});
+
+const btnCreate = document.getElementById('create');
+btnCreate.addEventListener('click', async () => {
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const permission = document.getElementById('permission').value;
+    const password = document.getElementById('password').value;
+    const user = await addUserToFirestore({
+        fullName,
+        email: `${email}@gmail.com`,
+        permission,
+        password
+    });
+});
+
+$('#updateModal').on('show.bs.modal', function (e) {
+    const user = e;
+    console.log(user);
 });

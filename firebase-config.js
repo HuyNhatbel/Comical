@@ -13,12 +13,25 @@ const firebaseConfig = {
     messagingSenderId: "50874984634",
     appId: "1:50874984634:web:d5156085b2a764baf47a83",
     measurementId: "G-CCCGP37GVT"
-  };
+};
+
+const firebaseConfig2 = {
+    apiKey: "AIzaSyAy3E6W18XpdwatHykZ13SHDk-LZTxcJgY",
+    authDomain: "school-management-9be49.firebaseapp.com",
+    databaseURL: "https://school-management-9be49-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "school-management-9be49",
+    storageBucket: "school-management-9be49.appspot.com",
+    messagingSenderId: "124556711513",
+    appId: "1:124556711513:web:60e309ecd813394efb4348",
+    measurementId: "G-K21GLE45GZ"
+};
+
+const app2 = initializeApp(firebaseConfig2, 'app2');
+const storage = getStorage(app2);
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig, 'app1');
 const db = getFirestore(app);
-const storage = getStorage(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
@@ -51,41 +64,30 @@ export async function getUsersFromFirestore() {
     }
 }
 
-// Upload file to Firebase Storage
-export function uploadFile(file, onProgress, onComplete, onError) {
-    const storageRef = ref(storage, "images/" + file.name);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            if (onProgress) onProgress(progress);
-        },
-        (error) => {
-            if (onError) onError(error);
-        },
-        async () => {
-            try {
-                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                if (onComplete) onComplete(downloadURL);
-            } catch (error) {
-                if (onError) onError(error);
-            }
-        }
-    );
+export async function addBookToFirestore(data) {
+    try {
+        const docRef = await addDoc(collection(db, "books"), {
+            ...data,
+            createdAt: new Date(),
+        });
+        console.log("Document written with ID:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding document:", error);
+        throw error;
+    }
 }
 
-// Delete file from Firebase Storage
-export async function deleteFileByUrl(imageUrl) {
+// Get data from Firestore
+export async function getBooksFromFirestore() {
     try {
-        const urlObj = new URL(imageUrl);
-        const path = decodeURIComponent(urlObj.pathname.split("/o/")[1].split("?")[0]);
-        const imageRef = ref(storage, path);
-        await deleteObject(imageRef);
-        console.log("File deleted successfully!");
+        const querySnapshot = await getDocs(collection(db, "books"));
+        return querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
     } catch (error) {
-        console.error("Error deleting file:", error);
+        console.error("Error getting documents:", error);
         throw error;
     }
 }
@@ -137,4 +139,44 @@ export async function logoutUser() {
 // Monitor Auth State
 export function onAuthChange(callback) {
     onAuthStateChanged(auth, callback);
+}
+
+
+export function uploadFile(file) {
+    const storageRef = ref(storage, "images/" + file.name);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+        (error) => {
+            console.error("Error uploading file:", error);
+            throw error;
+        },
+        async () => {
+            try {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                return downloadURL;
+            } catch (error) {
+                console.error("Error uploading file:", error);
+                throw error;
+            }
+        }
+    );
+}
+
+// Delete file from Firebase Storage
+export async function deleteFileByUrl(imageUrl) {
+    try {
+        const urlObj = new URL(imageUrl);
+        const path = decodeURIComponent(urlObj.pathname.split("/o/")[1].split("?")[0]);
+        const imageRef = ref(storage, path);
+        await deleteObject(imageRef);
+        console.log("File deleted successfully!");
+    } catch (error) {
+        console.error("Error deleting file:", error);
+        throw error;
+    }
 }
