@@ -52,8 +52,8 @@
                             <div class="modal-body">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">@</span>
-                                    <input type="text" class="form-control" placeholder="Full name" aria-label="Full name" id="fullName"
-                                        aria-describedby="basic-addon1" />
+                                    <input type="text" class="form-control" placeholder="Full name"
+                                        aria-label="Full name" id="fullName" aria-describedby="basic-addon1" />
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -97,53 +97,52 @@
             </thead>
             <tbody></tbody>
         </table>
-        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Update user</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                    <input type="text" class="form-control" placeholder="Full name" aria-label="Full name"
-                                        aria-describedby="basic-addon1" />
-                                </div>
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update user</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <input type="text" id="update-id" hidden>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Full name" id="fullname-update"
+                                aria-label="Full name" aria-describedby="basic-addon1" />
+                        </div>
 
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Recipient's username"
-                                        aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                                    <span class="input-group-text" id="basic-addon2">@example.com</span>
-                                </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email" id="email-update"
+                                aria-label="Email" aria-describedby="basic-addon2" />
+                            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                        </div>
 
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon3">Password</span>
-                                    <input type="text" class="form-control" id="basic-url"
-                                        aria-describedby="basic-addon3 basic-addon4" />
-                                </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Password</span>
+                            <input type="text" class="form-control" id="password-update"
+                                aria-describedby="basic-addon3 basic-addon4" />
+                        </div>
 
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon3">Day joined</span>
-                                    <input type="date" class="form-control" id="basic-url"
-                                        aria-describedby="basic-addon3 basic-addon4" />
-                                </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Day joined</span>
+                            <input type="date" class="form-control" id="day-joined-update"
+                                aria-describedby="basic-addon3 basic-addon4" />
+                        </div>
 
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon3">Permission</span>
-                                    <input type="text" class="form-control" id="basic-url"
-                                        aria-describedby="basic-addon3 basic-addon4" />
-                                </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Permission</span>
+                            <input type="text" class="form-control" id="permission-update"
+                                aria-describedby="basic-addon3 basic-addon4" />
+                        </div>
 
-                                <div class="input-group mb-3">
-                                    <button type="button" class="btn btn-primary" id="create">Create</button>
-                                </div>
-                            </div>
+                        <div class="input-group mb-3">
+                            <button type="button" class="btn btn-primary" id="update-btn">Update</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
 
     <!-- jQuery -->

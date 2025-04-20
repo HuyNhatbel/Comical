@@ -1,8 +1,10 @@
-import { addUserToFirestore, getUsersFromFirestore } from '../../firebase-config.js';
+import { addUserToFirestore, getUsersFromFirestore, updateUserToFirestore } from '../../firebase-config.js';
 
 // Khởi tạo DataTable
 $(document).ready(async function () {
     const users = await getUsersFromFirestore();
+    console.log("users", users);
+
     $('#userTable').DataTable({
         data: users,
         columns: [
@@ -10,10 +12,10 @@ $(document).ready(async function () {
                 data: null,
                 render: function () {
                     return `
-                <div class="avatar-container">
-                    <img src="https://via.placeholder.com/30" class="avatar" alt="Avatar">
-                    <span class="status-dot"></span>
-                </div>
+                    <div class="avatar-container">
+                        <img src="https://via.placeholder.com/30" class="avatar" alt="Avatar">
+                        <span class="status-dot"></span>
+                    </div>
             `;
                 },
                 orderable: false
@@ -41,8 +43,14 @@ $(document).ready(async function () {
             },
             {
                 data: null,
-                render: function () {
-                    return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">Edit</button>`;
+                render: function (data) {
+                    return `<button type="button" class="btn btn-primary open-update-modal" data-bs-toggle="modal" data-bs-target="#updateModal"
+                    data-id="${data.id}"
+                    data-fullname="${data.fullName}"
+                    data-email="${data.email}"
+                    data-day-joined="${data.createdAt}"
+                    data-permission="${data.permission}"
+                    >Edit</button>`;
                 },
                 orderable: false
             }
@@ -54,9 +62,20 @@ $(document).ready(async function () {
         }
     });
 
-    // Di chuyển ô tìm kiếm vào vị trí mong muốn
     $('#searchInput').on('keyup', function () {
         $('#userTable').DataTable().search(this.value).draw();
+    });
+    $(document).on('click', '.open-update-modal', function () {
+        const id = $(this).data('id');
+        const fullName = $(this).data('fullname');
+        const email = $(this).data('email');
+        const dayJoined = $(this).data('day-joined');
+        const permission = $(this).data('permission');
+        $('#update-id').val(id);
+        $('#fullname-update').val(fullName);
+        $('#email-update').val(email);
+        $('#day-joined-update').val(dayJoined);
+        $('#permission-update').val(permission);
     });
 });
 
@@ -77,4 +96,17 @@ btnCreate.addEventListener('click', async () => {
 $('#updateModal').on('show.bs.modal', function (e) {
     const user = e;
     console.log(user);
+});
+
+const btnUpdate = document.getElementById('update-btn');
+btnUpdate.addEventListener('click', async () => {
+    const id = document.getElementById('update-id').value;
+    const fullName = document.getElementById('fullname-update').value;
+    const email = document.getElementById('email-update').value;
+    const permission = document.getElementById('permission-update').value;
+    const user = await updateUserToFirestore(id, {
+        fullName,
+        email: `${email}@gmail.com`,
+        permission
+    });
 });

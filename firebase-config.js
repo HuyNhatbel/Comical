@@ -1,6 +1,6 @@
 // Import Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-storage.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
@@ -64,6 +64,14 @@ export async function getUsersFromFirestore() {
     }
 }
 
+export async function updateUserToFirestore(id, data) {
+    try {
+        const userRef = doc(db, "users", id);
+        await updateDoc(userRef, data);
+    } catch (error) {
+        console.error("Error updating document:", error);
+    }
+}
 export async function addBookToFirestore(data) {
     try {
         const docRef = await addDoc(collection(db, "books"), {
@@ -89,6 +97,15 @@ export async function getBooksFromFirestore() {
     } catch (error) {
         console.error("Error getting documents:", error);
         throw error;
+    }
+}
+
+export async function updateBookToFirestore(id, data) {
+    try {
+        const bookRef = doc(db, "books", id);
+        await updateDoc(bookRef, data);
+    } catch (error) {
+        console.error("Error updating document:", error);
     }
 }
 

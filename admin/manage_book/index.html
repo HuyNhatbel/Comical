@@ -95,14 +95,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <input type="text" id="update-id" hidden>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Title" aria-label="Title"
-                                aria-describedby="basic-addon1" />
+                                aria-describedby="basic-addon1" id="update-title" />
                         </div>
 
                         <div class="input-group mb-3">
                             <input type="number" class="form-control" placeholder="Chapters" aria-label="Chapters"
-                                aria-describedby="basic-addon2" />
+                                aria-describedby="basic-addon2" id="update-chapters" />
                             <span class="input-group-text" id="basic-addon2">Number of chapters</span>
                         </div>
 
@@ -110,16 +111,16 @@
                             <span class="input-group-text" id="basic-addon1"></span>
                             <span class="input-group-text" id="basic-addon3">Image</span>
                             <input type="file" class="form-control" id="basic-url"
-                                aria-describedby="basic-addon3 basic-addon4" />
+                                aria-describedby="basic-addon3 basic-addon4" id="update-image" />
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Content</span>
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <textarea class="form-control" aria-label="With textarea" id="update-content"></textarea>
                         </div>
 
                         <div class="input-group mb-3">
-                            <button type="button" class="btn btn-primary" id="create">Update</button>
+                            <button type="button" class="btn btn-primary" id="update-btn">Update</button>
                         </div>
                     </div>
                 </div>
