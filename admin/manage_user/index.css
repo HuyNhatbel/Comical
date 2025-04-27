@@ -72,3 +72,19 @@ h2 {
 #userTable{
     width: 100% !important;
 }
+
+.navbar {
+    background: rgb(255, 254, 254);
+    flex: 0,0,0 auto;
+    position: fixed;
+    top: 0;
+    width: 100px;
+    height: 1260px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 100px;
+}
+.container-mt-4 {
+    margin: 200px
+}
