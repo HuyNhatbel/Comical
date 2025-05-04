@@ -2,62 +2,152 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Manager Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #c3cfe2, #c3cfe2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      height: 70px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4f46e5;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4f46e5;
+    }
+
+    .logout-btn {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .logout-btn:hover {
+      background: #dc2626;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .welcome-card h1 {
+      font-size: 36px;
+      color: #1f2937;
+      margin-bottom: 20px;
+    }
+
+    .welcome-card p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    footer {
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #666;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
 </head>
 
 <body>
-    <div>
-        <h1>Sign Up</h1>
-        <div class="form">
-            <input type="text" name="name" placeholder="Name" required autofocus id="name">
-            <input type="text" name="email" placeholder="Email" required autofocus id="email">
-            <input type="password" name="password" placeholder="Password" required id="password">
-            <input type="password" name="confirm_password" placeholder="Confirm Password" required
-                id="confirm_password">
-            <input type="submit" value="Sign Up" id="btnSignup">
-        </div>
+
+  <nav>
+    <div class="logo">AdminPanel</div>
+    <div class="nav-links">
+      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#"><i class="fas fa-user"></i> Manage Users</a>
+      <a href="#"><i class="fas fa-book"></i> Manage Books</a>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
     </div>
-</body>
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-    const firebaseConfig = {
-        apiKey: "AIzaSyCpOWvpr23H_bxtja_Q4r5xlVCPvy2XJmM",
-        authDomain: "something-405b6.firebaseapp.com",
-        projectId: "something-405b6",
-        storageBucket: "something-405b6.firebasestorage.app",
-        messagingSenderId: "50874984634",
-        appId: "1:50874984634:web:d5156085b2a764baf47a83",
-        measurementId: "G-CCCGP37GVT"
-      };
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </nav>
 
+  <div class="content">
+    <div class="welcome-card">
+      <h1>Welcome Admin!</h1>
+      <p>
+        You're in control! Manage users, organize book inventories, and configure system settings. Our lightweight
+        and stylish dashboard is built to make your work smooth and efficient.
+      </p>
+    </div>
+  </div>
 
-    const btnSignup = document.getElementById('btnSignup');
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const confirm_password = document.getElementById('confirm_password');
-    btnSignup.addEventListener('click', handleSignup);
-    function handleSignup() {
-        if (password.value != confirm_password.value) {
-            alert('Password and Confirm Password must be same');
-            return;
-        }
-        createUserWithEmailAndPassword(auth, email.value, password.value)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
-            })
-            .catch((error) => {
-                const errorCode = error.code; 
-                const errorMessage = error.message;
-                console.log(errorCode, ": ", errorMessage);
-            });
+  <footer>
+    © 2025 Admin Dashboard. All rights reserved.
+  </footer>
+
+  <script>
+    function logout() {
+      if (confirm('Do you really want to logout?')) {
+        window.location.href = "../../login.html"; // Adjust if needed
+      }
     }
-</script>
+  </script>
+
+</body>
 
 </html>

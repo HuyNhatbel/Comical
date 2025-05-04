@@ -19,7 +19,7 @@ body {
     justify-content: space-between;
 }
 
-.main-content {
+.intro {
     flex: 1;
     background-color: #fff;
     padding: 20px;
@@ -82,4 +82,9 @@ body {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
+}
+
+.main-content {
+    padding: 20px;
+    flex: 1;
 }
