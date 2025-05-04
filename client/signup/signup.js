@@ -1,9 +1,10 @@
-// alert("noi dung muon thong bao")
-document.getElementById("btnSignUp").addEventListener('click', function () {
+import { addUserToFirestore } from '../../firebase-config.js';
+document.getElementById("btnSignUp").addEventListener('click', async function () {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     let retypepassword = document.getElementById("retypepassword").value;
+    let fullname = document.getElementById("fullname").value;
 
     if (username.length < 6) {
         alert("Tên phải chứa tối đa 6 ký tự")
@@ -19,18 +20,13 @@ document.getElementById("btnSignUp").addEventListener('click', function () {
         return;
     }
     if (retypepassword == password) {
-        if (!localStorage.getItem('users')) {
-        localStorage.setItem('users', '[]');
-        }
-        let users = JSON.parse(localStorage.getItem('users'));
-        users.push({
+        const user = {
             email: email,
             username: username,
             password: password,
-            retypepassword: retypepassword
-        });
-        
-        localStorage.setItem('users', JSON.stringify(users));
+            fullName: fullname,
+        }
+        await addUserToFirestore(user);
         alert("Đăng ký tài khoản thành công!")
         window.location.href = '../login/index.html'
     } else {

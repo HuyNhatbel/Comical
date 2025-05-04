@@ -1,8 +1,8 @@
 // Import Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-storage.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+import { addDoc, collection, doc, getDocs, getFirestore, updateDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { deleteObject, getDownloadURL, getStorage, ref, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-storage.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -116,6 +116,21 @@ export async function registerUser(email, password) {
         return userCredential.user;
     } catch (error) {
         console.error("Error registering user:", error);
+        throw error;
+    }
+}
+
+export async function handleSignIn(email, password) {
+    try {
+        const users = await getUsersFromFirestore();
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email === email && users[i].password === password) {
+                return users[i];
+            }
+        }
+        return null;
+    } catch (error) {
+        console.error("Error signing in:", error);
         throw error;
     }
 }

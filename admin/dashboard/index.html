@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../common/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -41,12 +42,64 @@
             </div>
         </div>
         <div class="sidebar-logout">
+            <div class="sidebar-logout-user">
+                <img src="https://cdn-icons-png.flaticon.com/512/6858/6858504.png" alt="user">
+                <span id="user-name">Admin</span>
+            </div>
             <button id="logout">Logout</button>
         </div>
     </div>
     <div class="intro">
-        <h1>Welcome to Comical manager dashboard!</h1>
-        <h3>We are dedicated to providing a comprehensive management system for books and users. Our platform is designed to support administrators in efficiently organizing book inventories, overseeing user accounts, and maintaining accurate records. With a focus on reliability and ease of use, we aim to streamline the management process and enhance operational effectiveness</h3>
+        <div class="header">
+            <h1>Comical Manager Dashboard</h1>
+            <div class="stats">
+                <div class="stat">
+                    <p class="value">150</p>
+                    <p class="label">Total Users</p>
+                </div>
+                <div class="stat">
+                    <p class="value">300</p>
+                    <p class="label">Total Comics</p>
+                </div>
+                <div class="admin-info">
+                    <p>Admin</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sidebar_dashboard">
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Discovery</li>
+                    <li>Reports</li>
+                    <li>Settings</li>
+                    <li>Inventory</li>
+                    <li>All Comics</li>
+                </ul>
+            </div>
+            <div class="dashboard-content">
+                <div class="section upcoming">
+                    <h2>Upcoming Expirations</h2>
+                    <div class="expirations">
+                        <div>Expired: <span class="expired">4</span></div>
+                        <div>7d: <span class="count">15</span></div>
+                        <div>30d: <span class="count">3</span></div>
+                        <div>90d: <span class="count">16</span></div>
+                    </div>
+                </div>
+                <div class="section vulnerable">
+                    <h2>Vulnerable Comics</h2>
+                    <p>Total: <span class="total">13</span></p>
+                    <ul>
+                        <li>2 Certificate Name Mismatch</li>
+                        <li>1 Internal Names</li>
+                        <li>3 SHA-1 Hashing Algorithm</li>
+                        <li>2 Weak Hashing Algorithm</li>
+                    </ul>
+                    <button>Fix it now</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../common/index.js"></script>

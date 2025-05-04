@@ -91,6 +91,8 @@ btnCreate.addEventListener('click', async () => {
         permission,
         password
     });
+    alert('Tạo tài khoản thành công!');
+    window.location.reload();
 });
 
 $('#updateModal').on('show.bs.modal', function (e) {
@@ -109,4 +111,6 @@ btnUpdate.addEventListener('click', async () => {
         email: `${email}@gmail.com`,
         permission
     });
+    alert('Cập nhật thành công!');
+    window.location.reload();
 });

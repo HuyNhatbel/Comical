@@ -1,23 +1,22 @@
-document.getElementById("btnLogin").addEventListener('click', function() {
+import { handleSignIn } from '../../firebase-config.js';
+
+document.getElementById("btnLogin").addEventListener('click', async function() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-
-    if (!localStorage.getItem('users')) {
-        alert("Đăng nhập thất bại!")
-    } 
-    let users = JSON.parse(localStorage.getItem('users'));
-    let dem = 0;
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].email == email && users[i].password == password) {
+    const user = await handleSignIn(email, password);
+    if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+        if (user.permission === 'admin') {
             alert("Đăng nhập thành công!");
-            window.location.href = '../home/home.html'; 
+            window.location.href = '../../admin/dashboard/';
         } else {
-            dem = dem + 1;
+            alert("Đăng nhập thành công!");
+            window.location.href = '../home/home.html';
         }
+    } else {
+        alert("Đăng nhập thất bại!");
     }
-    if (dem == users.length) {
-        alert("Đăng nhập thất bại!")
-    }
+    
 });
 
 document.getElementById("home").addEventListener('click', function() {
