@@ -55,60 +55,39 @@
             <button id="logout">Logout</button>
         </div>
     </div>
-    <div class="intro">
-        <div class="header">
-            <h1>Comical Manager Dashboard</h1>
-            <div class="stats">
-                <div class="stat">
-                    <p class="value">7</p>
-                    <p class="label">Total Users</p>
+        <div class="content">
+            <div class="settings-container">
+                <h2>Settings</h2>
+
+                <div class="setting-group">
+                    <label for="language">Language</label>
+                    <select id="language">
+                        <option value="vi">Vietnamese</option>
+                        <option value="en">English</option>
+                    </select>
                 </div>
-                <div class="stat">
-                    <p class="value">20</p>
-                    <p class="label">Total Comics</p>
-                </div>
-                <div class="admin-info">
-                    <p>Admin</p>
-                </div>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="sidebar_dashboard">
-                <ul>
-                    <li>Dashboard</li>
-                    <li>Discovery</li>
-                    <li>Reports</li>
-                    <li>Settings</li>
-                    <li>Inventory</li>
-                    <li>All Comics</li>
-                </ul>
-            </div>
-            <div class="dashboard-content">
-                <div class="section upcoming">
-                    <h2>Upcoming Expirations</h2>
-                    <div class="expirations">
-                        <div>Expired: <span class="expired">4</span></div>
-                        <div>7d: <span class="count">15</span></div>
-                        <div>30d: <span class="count">3</span></div>
-                        <div>90d: <span class="count">16</span></div>
+
+                <div class="setting-group">
+                    <label>Notifications</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" checked> Email</label>
+                        <label><input type="checkbox"> Push</label>
                     </div>
                 </div>
-                <div class="section vulnerable">
-                    <h2>Vulnerable Comics</h2>
-                    <p>Total: <span class="total">13</span></p>
-                    <ul>
-                        <li>2 Certificate Name Mismatch</li>
-                        <li>1 Internal Names</li>
-                        <li>3 SHA-1 Hashing Algorithm</li>
-                        <li>2 Weak Hashing Algorithm</li>
-                    </ul>
-                    <button>Fix it now</button>
+
+                <div class="setting-group">
+                    <label>Display Mode</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="display" checked> Light</label>
+                        <label><input type="radio" name="display"> Dark</label>
+                    </div>
                 </div>
+
+                <button class="save-btn">Save Changes</button>
             </div>
         </div>
-    </div>
+        </div>
 
-    <script src="../common/index.js"></script>
-</body>
+    </body>
 
-</html>
+    </html>

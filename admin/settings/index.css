@@ -1,3 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8fbfd;
+    color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 1px;
+    height: 768px;
+    background-color: #ffffff;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f4f7fa;
+    border-right: 1px solid #e0e6ed;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    color: #2a4374;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    color: #2a4374;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.settings-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #2a4374;
+    margin-bottom: 20px;
+}
+
+.setting-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="text"] {
+    margin-top: 5px;
+}
+
+select,
+input[type="text"] {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #f4f7fa;
+    width: 100%;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+.save-btn {
+    padding: 10px 20px;
+    background-color: #2a4374;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: #1e3155;
+}
+
 .intro {
     display: flex;
     flex-direction: column;
@@ -53,23 +162,27 @@
     gap: 1.5rem;
 }
 
-.sidebar_dashboard {
-    width: 16rem;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: -webkit-fill-available;
+    padding: 50px 0;
+    background-color: #b39b9b;
+    width: 250px;
+    justify-content: space-between;
 }
 
-.sidebar_dashboard ul {
+.sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.sidebar_dashboard li {
+.sidebar li {
     color: #718096;
 }
 
-.sidebar_dashboard li:first-child {
+.sidebar li:first-child {
     color: #2b6cb0;
 }
 
