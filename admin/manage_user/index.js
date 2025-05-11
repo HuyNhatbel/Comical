@@ -13,7 +13,7 @@ $(document).ready(async function () {
                 render: function () {
                     return `
                     <div class="avatar-container">
-                        <img src="https://via.placeholder.com/30" class="avatar" alt="Avatar">
+                        <img src="../../Images/avatar.png" class="avatar" alt="Avatar">
                         <span class="status-dot"></span>
                     </div>
             `;

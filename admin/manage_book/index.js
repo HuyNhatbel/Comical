@@ -11,18 +11,6 @@ $(document).ready(async function () {
     $('#userTable').DataTable({
         data: books,
         columns: [
-            {
-                data: null,
-                render: function () {
-                    return `
-                <div class="avatar-container">
-                    <img src="https://via.placeholder.com/30" class="avatar" alt="Avatar">
-                    <span class="status-dot"></span>
-                </div>
-            `;
-                },
-                orderable: false
-            },
             { data: "title" },
             { data: "chapters" },
             {
