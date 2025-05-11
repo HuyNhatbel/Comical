@@ -4,7 +4,6 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
     background-color: #f8fbfd;
     color: #2c3e50;
     display: flex;
@@ -21,13 +20,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #f4f7fa;
-    border-right: 1px solid #e0e6ed;
-    padding: 20px;
-}
-
 .sidebar h3 {
     color: #2a4374;
     font-size: 16px;
@@ -40,7 +32,6 @@ body {
 }
 
 .sidebar li {
-    margin: 10px 0;
     color: #2a4374;
     cursor: pointer;
 }
@@ -160,30 +151,6 @@ input[type="text"] {
     flex: 1;
     padding: 1.5rem;
     gap: 1.5rem;
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    height: -webkit-fill-available;
-    padding: 50px 0;
-    background-color: #b39b9b;
-    width: 250px;
-    justify-content: space-between;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar li {
-    color: #718096;
-}
-
-.sidebar li:first-child {
-    color: #2b6cb0;
 }
 
 .dashboard-content {
